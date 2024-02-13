@@ -1,4 +1,3 @@
-const { getRandomName } = require("../../CONN-VIRT-FSF-PT-09-2023-U-LOLC/18-NoSQL/01-Activities/28-Stu_Mini-Project/Main/utils/data");
 
 const names = [
     'Aaran',
@@ -86,25 +85,53 @@ const thoughts = [
 ]
 
 const reactions = [
-    '😆',
-    '😂',
-    '😢',
-    '😡',
-    '🤔',
+    'Happy',
+    'Sad',
+    'Angry',
+    'Confused',
+    'Indifferent',
+]
+
+const emails = [
+    '@gmail.com',
+    '@yahoo.com',
+    '@hotmail.com',
+    '@aol.com',
+    '@outlook.com',
+    '@icloud.com',
+    '@sbcglobal.net',
 ]
 
 const getRandomArrItem = (arr) => arr[Math.floor(Math.random() * arr.length)];
 
-const getRandomName = () => {
-    return `${getRandomArrItem(names)} ${getRandomArrItem(names)}`;
+const getRandomUsername = () => {
+    return `${getRandomArrItem(names) + Math.floor(Math.random() * 100)}`;
+}
+const getRandomEmail = () => {
+    return getRandomArrItem(emails);
+
+}
+const getRandomThoughts = () => {
+  return getRandomArrItem(thoughts);
 }
 
-const getRandomThought = () => {
-    return getRandomArrItem(thoughts);
+const getRandomReactions = (int) => {
+    const results = [];
+  for (let i = 0; i < int; i++) {
+    results.push(
+    getRandomArrItem(reactions),
+    );
+  }
+  return results;
 }
 
-const getRandomReaction = () => {
-    return getRandomArrItem(reactions);
-}
-
-module.exports = { getRandomName, getRandomThought, getRandomReaction };
+const getRandomFriendsList = (int) => {
+    const results = [];
+    for (let i = 0; i < int; i++) {
+        results.push(
+          getRandomUsername()
+        );
+    }
+    return results;
+  }
+module.exports = { getRandomUsername, getRandomThoughts, getRandomReactions, getRandomEmail, getRandomFriendsList };
